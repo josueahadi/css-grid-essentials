@@ -1,1 +1,1 @@
-# Vanilla CSS Grid
+# learn-grid-the-easy-way
