@@ -147,7 +147,13 @@ h3 {
 .testimonial-grid {
   display: grid;
   gap: 1.5rem;
-  
+  grid-auto-columns: 1fr; /* For any automatically generated column will be 1fr. This will give you a nice balanced layout for the columns. You can also do the same for rows if you want. */
+  grid-template-areas: 
+  'one'
+  'two'
+  'three'
+  'four'
+  'five';
 
   padding-block: 2rem;
   width: min(95%, 70rem);
@@ -161,8 +167,44 @@ h3 {
   box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
 }
 
-@media (min-width: 40em) {
-  .grid-col-span-2 {
+.testimonial:nth-child(1) {
+  grid-area: one;
+}
+
+.testimonial:nth-child(2) {
+  grid-area: two;
+}
+
+.testimonial:nth-child(3) {
+  grid-area: three;
+}
+
+.testimonial:nth-child(4) {
+  grid-area: four;
+}
+
+.testimonial:nth-child(5) {
+  grid-area: five;
+}
+
+@media (min-width: 30em) {
+  .testimonial-grid {
+    grid-template-areas: 
+      'one one '
+      'two five'
+      'three five'
+      'four four';
+  }
+}
+
+@media (min-width: 50em) {
+  .testimonial-grid {
+    grid-template-areas: 
+      'one one two five'
+      'three four four five';
+  }
+
+  /* .grid-col-span-2 {
     grid-column: span 2;
   }
   
@@ -174,14 +216,9 @@ h3 {
   .testimonial:last-child {
     grid-column-start: 4;
     grid-row: 1 / span 2;
-  }
+  } */
 }
  
-/* .testimonial:nth-child(3) {
-  
-} */
-
-
 
 .testimonial.quote {
   background-image: url("./images/bg-pattern-quotation.svg");
